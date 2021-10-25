@@ -14,21 +14,29 @@ const bici = [
     {
         nome: "Atala",
         peso: 20
+    },
+    // Indice 2
+    {
+        nome: "Scott",
+        peso: 5
     }
 ];
 
-let biciLeggera = 0;
+let biciLeggera = bici[0];
 
 for (let i = 0; i < bici.length; i++) {
     
-    let singolaBici = bici[i].peso;
+    let singolaBici = bici[i]; 
 
-    if(biciLeggera <= singolaBici){
-        console.log("La tua bici è più leggera");
-    } else {
-        console.log("La tua bici è più pesante");
+    if(biciLeggera.peso > singolaBici.peso){
+        biciLeggera = bici[i];
     }
 
 }
 
-console.log(biciLeggera);
+const {nome, peso} = biciLeggera;
+
+const container = document.querySelector(".container");
+container.innerHTML += `<h1>La bici più leggerà è la <span style="color:green";>${nome}</span> con un peso di <span style="color:green";>${peso}</span> kg</h1>`;
+
+
